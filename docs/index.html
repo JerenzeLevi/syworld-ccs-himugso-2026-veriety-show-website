@@ -256,10 +256,32 @@
       <img class="final-emblem" src="assets/logo.png" alt="SyWorld house emblem" width="96" height="96" />
       <p class="section-eyebrow">The world you know is only one world</p>
       <h2>Welcome to SyWorld.<br /><span class="grad">Where you decide what reality means.</span></h2>
-      <a href="#pricing" class="btn btn-buy big" data-magnetic>Buy SyWorld now</a>
+      <a href="#" class="btn btn-buy big" data-magnetic data-purchase>Buy SyWorld now</a>
     </div>
   </section>
 </main>
+
+<!-- ============ PURCHASE MOMENT ============ -->
+<div class="purchase-modal" id="purchaseModal" aria-hidden="true">
+  <div class="pm-backdrop" data-pm-close></div>
+  <canvas class="pm-confetti" id="pmConfetti" aria-hidden="true"></canvas>
+  <div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="pmTitle" aria-describedby="pmDesc">
+    <button class="pm-x" id="pmClose" type="button" aria-label="Close" data-pm-close>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <span class="pm-shine" aria-hidden="true"></span>
+    <div class="pm-emblem-wrap">
+      <span class="pm-ring"></span>
+      <span class="pm-ring pm-ring-2"></span>
+      <img class="pm-emblem" src="assets/logo.png" alt="" width="84" height="84" />
+    </div>
+    <p class="pm-eyebrow">Your second reality is on its way</p>
+    <h2 class="pm-title" id="pmTitle"><span class="pm-word">Item</span> <span class="pm-word grad">purchased!</span></h2>
+    <p class="pm-desc" id="pmDesc"><span class="pm-check" aria-hidden="true">&check;</span> It will be delivered!</p>
+    <p class="pm-note">A SyWorld headset is being prepared for you. Somewhere quieter is almost here.</p>
+    <button class="btn btn-buy pm-done" type="button" data-pm-close>Wait for it to arrive</button>
+  </div>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer" id="contact">

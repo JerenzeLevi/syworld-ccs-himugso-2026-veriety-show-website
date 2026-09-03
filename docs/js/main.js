@@ -271,6 +271,128 @@
     });
   });
 
+  /* ---------- PURCHASE moment (peak UI, click-triggered — not ScrollTrigger) ---------- */
+  (function purchaseMoment() {
+    const modal = document.getElementById("purchaseModal");
+    if (!modal) return;
+    const card = modal.querySelector(".pm-card");
+    const backdrop = modal.querySelector(".pm-backdrop");
+    const shine = modal.querySelector(".pm-shine");
+    const words = modal.querySelectorAll(".pm-word");
+    const rings = modal.querySelectorAll(".pm-ring");
+    const cvs = document.getElementById("pmConfetti");
+    const ctx = cvs.getContext("2d");
+    const HUES = ["#22d3ee", "#6366f1", "#a855f7", "#ff6a3d", "#ff9d4d", "#f4f5ff"];
+    let lastFocus = null, floatTween = null, burstRAF = 0;
+
+    function sizeCanvas() {
+      const r = cvs.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cvs.width = r.width * dpr; cvs.height = r.height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    // radial particle shower in brand hues — the "amazed / special" hit
+    function burst() {
+      if (RM) return;
+      sizeCanvas();
+      const w = cvs.clientWidth, h = cvs.clientHeight;
+      const cx = w / 2, cy = h * 0.42;
+      const n = SMALL ? 90 : 150;
+      const parts = [];
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * Math.PI * 2;
+        const sp = 4 + Math.random() * 11;
+        parts.push({
+          x: cx, y: cy,
+          vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3,
+          g: 0.14 + Math.random() * 0.12, s: 4 + Math.random() * 7,
+          rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.4,
+          col: HUES[(Math.random() * HUES.length) | 0],
+          life: 1, fade: 0.006 + Math.random() * 0.008,
+          rect: Math.random() < 0.5,
+        });
+      }
+      cancelAnimationFrame(burstRAF);
+      (function step() {
+        ctx.clearRect(0, 0, w, h);
+        let alive = 0;
+        for (const p of parts) {
+          if (p.life <= 0) continue;
+          alive++;
+          p.vx *= 0.985; p.vy = p.vy * 0.985 + p.g;
+          p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life -= p.fade;
+          ctx.save();
+          ctx.globalAlpha = Math.max(p.life, 0);
+          ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+          ctx.fillStyle = p.col;
+          if (p.rect) ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.6);
+          else { ctx.beginPath(); ctx.arc(0, 0, p.s / 2, 0, 6.283); ctx.fill(); }
+          ctx.restore();
+        }
+        if (alive) burstRAF = requestAnimationFrame(step);
+        else ctx.clearRect(0, 0, w, h);
+      })();
+    }
+
+    function open(e) {
+      if (e) e.preventDefault();
+      lastFocus = document.activeElement;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      if (RM) {
+        gsap.set(backdrop, { opacity: 1 });
+        gsap.set(card, { opacity: 1, scale: 1, y: 0, filter: "none" });
+      } else {
+        gsap.killTweensOf([backdrop, card, shine, words, rings]);
+        gsap.timeline()
+          .fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" })
+          .fromTo(card,
+            { opacity: 0, scale: 0.72, y: 38, filter: "blur(18px)" },
+            { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "elastic.out(1,0.62)" }, "-=0.15")
+          .fromTo(rings, { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "expo.out", stagger: 0.08 }, "-=0.7")
+          .fromTo(".pm-emblem", { scale: 0, rotate: -140 }, { scale: 1, rotate: 0, duration: 0.8, ease: "back.out(2)" }, "-=0.55")
+          .fromTo(".pm-eyebrow", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.4")
+          .fromTo(words, { yPercent: 120, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.7, ease: "expo.out", stagger: 0.09 }, "-=0.35")
+          .fromTo(".pm-desc", { y: 16, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.8)" }, "-=0.3")
+          .fromTo([".pm-note", ".pm-done"], { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, "-=0.25")
+          .add(burst, "-=0.75")
+          .fromTo(shine, { left: "-60%" }, { left: "160%", duration: 1.1, ease: "power2.inOut" }, "-=0.55");
+
+        floatTween = gsap.to(card, { y: -8, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.1 });
+        gsap.to(rings[0], { rotate: 360, duration: 24, ease: "none", repeat: -1 });
+        gsap.to(rings[1], { rotate: -360, duration: 34, ease: "none", repeat: -1 });
+      }
+      document.getElementById("pmClose").focus();
+    }
+
+    function finish() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      cancelAnimationFrame(burstRAF);
+      ctx.clearRect(0, 0, cvs.width, cvs.height);
+      if (lastFocus) lastFocus.focus();
+    }
+
+    function close() {
+      if (floatTween) floatTween.kill();
+      gsap.killTweensOf(rings);
+      if (RM) { finish(); return; }
+      gsap.to(card, { opacity: 0, scale: 0.82, y: 24, filter: "blur(12px)", duration: 0.4, ease: "power2.in" });
+      gsap.to(backdrop, { opacity: 0, duration: 0.45, delay: 0.05, onComplete: finish });
+    }
+
+    modal.querySelectorAll("[data-pm-close]").forEach((b) => b.addEventListener("click", close));
+    document.querySelectorAll("[data-purchase]").forEach((b) => b.addEventListener("click", open));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) close();
+    });
+    window.addEventListener("resize", () => { if (modal.classList.contains("open")) sizeCanvas(); }, { passive: true });
+  })();
+
   /* ---------- STARFIELD canvas (pauses when off-screen / tab hidden) ---------- */
   function field(canvasId, opts) {
     const c = document.getElementById(canvasId);
