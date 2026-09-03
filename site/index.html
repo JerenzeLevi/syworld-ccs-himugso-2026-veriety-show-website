@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#05060f" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta property="og:image" content="assets/logo-512.png" />
+<title>SyWorld — Escape reality. Create your own.</title>
+<meta name="description" content="SyWorld is next-generation VR. Build breathtaking worlds from your imagination, explore places that could never exist, and live inside realities limited only by what you can dream." />
+<meta property="og:title" content="SyWorld — Escape reality. Create your own." />
+<meta property="og:description" content="Next-generation VR. Create. Explore. Connect. Escape." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- scroll progress -->
+<div class="scroll-progress"><span id="progressBar"></span></div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="SyWorld home">
+    <img class="brand-mark" src="assets/logo.png" alt="SyWorld house emblem" width="28" height="28" />
+    <span class="brand-text">SY<span>WORLD</span></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#worlds">Worlds</a>
+    <a href="#device">Device</a>
+    <a href="#doctor">Clinical</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <a href="#pricing" class="btn btn-buy nav-buy" data-magnetic>Buy now</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <video class="hero-video" src="assets/Ads.mp4" autoplay muted loop playsinline preload="auto"></video>
+      <div class="hero-veil"></div>
+      <canvas id="starfield"></canvas>
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow reveal-line">Next-generation virtual reality</p>
+      <h1 class="hero-title">
+        <span class="line"><span class="w">Escape</span> <span class="w">reality.</span></span>
+        <span class="line grad"><span class="w">Create</span> <span class="w">your</span> <span class="w">own.</span></span>
+      </h1>
+      <p class="hero-sub reveal-line">What if you could step beyond the limits of the real world? With SyWorld, you don't just enter virtual reality&mdash;you live inside it.</p>
+      <div class="hero-cta reveal-line">
+        <a href="#pricing" class="btn btn-buy" data-magnetic>Buy now &mdash; from $499</a>
+        <a href="#experience" class="btn btn-ghost" data-magnetic>
+          <span class="play-dot"></span> Watch the world
+        </a>
+      </div>
+      <div class="hero-stats reveal-line">
+        <div><b data-count="12">0</b><small>M+ worlds built</small></div>
+        <div><b data-count="98">0</b><small>% presence score</small></div>
+        <div><b data-count="120">0</b><small>&deg; field of view</small></div>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span></span>scroll to enter</div>
+  </section>
+
+  <!-- ============ SCROLL-SCRUB FILM ============ -->
+  <section class="experience" id="experience">
+    <div class="exp-sticky">
+      <video id="scrubVideo" src="assets/video.mp4" muted playsinline preload="auto"></video>
+      <div class="exp-grain"></div>
+      <div class="exp-captions">
+        <div class="cap" data-at="0.08">
+          <h2>You see it before you believe it</h2>
+          <p>Next-generation optics render virtual worlds with a clarity your eyes accept as real.</p>
+        </div>
+        <div class="cap" data-at="0.34">
+          <h2>You hear the space around you</h2>
+          <p>Spatial audio places every sound in three dimensions &mdash; above, behind, breathing beside you.</p>
+        </div>
+        <div class="cap" data-at="0.60">
+          <h2>You move, and the world answers</h2>
+          <p>Full-body tracking translates every gesture instantly. Reach out. It's there.</p>
+        </div>
+        <div class="cap" data-at="0.86">
+          <h2>You stop asking which world is real</h2>
+          <p>The world you know is only one world. Welcome to SyWorld.</p>
+        </div>
+      </div>
+      <div class="exp-progress"><span id="expBar"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ PILLARS ============ -->
+  <section class="pillars" id="pillars">
+    <p class="section-eyebrow">The four verbs of SyWorld</p>
+    <h2 class="section-title">Create. Explore. Connect. Escape.</h2>
+    <div class="pillar-grid">
+      <article class="pillar" data-tilt>
+        <span class="pillar-num">01</span>
+        <h3>Create</h3>
+        <p>Build breathtaking worlds from your imagination with tools that think as fast as you do. A city floating above the clouds. A quiet room that only you know.</p>
+      </article>
+      <article class="pillar" data-tilt>
+        <span class="pillar-num">02</span>
+        <h3>Explore</h3>
+        <p>Race across an alien planet. Wander ruins that never existed. Step into worlds created by millions of other people and keep walking.</p>
+      </article>
+      <article class="pillar" data-tilt>
+        <span class="pillar-num">03</span>
+        <h3>Connect</h3>
+        <p>Meet people inside the worlds you both dreamed of. Presence so convincing that a conversation feels like the same room.</p>
+      </article>
+      <article class="pillar" data-tilt>
+        <span class="pillar-num">04</span>
+        <h3>Escape</h3>
+        <p>Close the door on the ordinary. SyWorld's immersion makes the limits of the real world optional.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ HORIZONTAL WORLDS ============ -->
+  <section class="worlds" id="worlds">
+    <div class="worlds-track" id="worldsTrack">
+      <div class="worlds-intro">
+        <p class="section-eyebrow">A universe of worlds</p>
+        <h2 class="section-title">Somewhere in here<br />is the one you were<br />looking for.</h2>
+        <p class="muted">Scroll &rarr;</p>
+      </div>
+      <article class="world-card"><span>Skyward</span><h3>Cities above the clouds</h3><p>Districts suspended on thermals, bridges of light between them.</p></article>
+      <article class="world-card"><span>Kesh-9</span><h3>An alien planet to race</h3><p>Magnetic canyons, three moons, a track that rewrites itself.</p></article>
+      <article class="world-card"><span>Hearth</span><h3>A small, peaceful world of your own</h3><p>Nothing to conquer. Just a place that stays exactly how you left it.</p></article>
+      <article class="world-card"><span>The Commons</span><h3>Worlds by millions of people</h3><p>An endless gallery of imaginations. Step through any frame.</p></article>
+      <article class="world-card final"><span>Yours</span><h3>The one you haven't built yet</h3><p>Start with an empty sky.</p><a href="#pricing" class="btn btn-buy" data-magnetic>Get SyWorld</a></article>
+    </div>
+  </section>
+
+  <!-- ============ DEVICE PREVIEW ============ -->
+  <section class="device" id="device">
+    <div class="device-media">
+      <div class="device-glow"></div>
+      <img src="assets/device.jpg" alt="SyWorld headset, three-quarter view" class="device-img" />
+      <div class="device-badges">
+        <span data-tilt>120&deg; FOV</span>
+        <span data-tilt>4K / eye</span>
+        <span data-tilt>Inside-out tracking</span>
+        <span data-tilt>Spatial audio</span>
+      </div>
+    </div>
+    <div class="device-copy">
+      <p class="section-eyebrow">The SyWorld headset</p>
+      <h2 class="section-title">Light on your face.<br />Impossible to look away from.</h2>
+      <p class="muted">SyWorld's next-generation VR technology makes virtual worlds feel more immersive than ever &mdash; letting you see, hear, move and interact as though you were truly there.</p>
+      <ul class="spec-list">
+        <li><b>Presence engine</b><span>Sub-20ms motion-to-photon. Your brain stops checking.</span></li>
+        <li><b>Dream Build tools</b><span>Sculpt terrain, weather and physics by hand, in-world.</span></li>
+        <li><b>All-day comfort</b><span>Balanced 428g build, breathable facial interface.</span></li>
+        <li><b>The Commons</b><span>Instant access to millions of player-made worlds.</span></li>
+      </ul>
+      <div class="device-actions">
+        <a href="#pricing" class="btn btn-buy" data-magnetic>Buy now</a>
+        <a href="#experience" class="btn btn-ghost" data-magnetic>Preview the experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLINICAL / DOCTOR ============ -->
+  <section class="doctor" id="doctor">
+    <div class="doctor-sticky">
+      <div class="doctor-portrait">
+        <img src="assets/dr-omandam-2.jpg" alt="Dr. Jerenze Levi Omandam" class="portrait a" />
+        <img src="assets/dr-omandam-1.jpg" alt="Dr. Jerenze Levi Omandam presenting the SyWorld headset" class="portrait b" />
+        <div class="portrait-ring"></div>
+      </div>
+      <div class="doctor-copy">
+        <p class="section-eyebrow">Clinically observed &middot; Physician reviewed</p>
+        <h2 class="section-title">&ldquo;In twenty years of internal medicine, I have never seen a technology calm a nervous system this fast.&rdquo;</h2>
+        <blockquote>
+          SyWorld's presence response is not a gimmick. We measured lower resting heart rate and steadier breathing in first-time users within four minutes of entering a world they built themselves. For patients managing stress, isolation and chronic pain, a world you control is a clinical asset.
+        </blockquote>
+        <div class="doctor-id">
+          <div>
+            <b>Dr. Jerenze Levi Omandam, MD</b>
+            <span>Internal Medicine &middot; Digital Wellness Research</span>
+          </div>
+          <div class="doctor-metrics">
+            <div><b data-count="20">0</b><small>yrs practice</small></div>
+            <div><b data-count="14000">0</b><small>patients seen</small></div>
+            <div><b data-count="4">0</b><small>min to calm</small></div>
+          </div>
+        </div>
+        <p class="disclaimer">Observational review conducted with first-time SyWorld users. Individual results vary. SyWorld is a consumer wellness and entertainment product and is not a substitute for medical care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing" id="pricing">
+    <p class="section-eyebrow">Choose your way in</p>
+    <h2 class="section-title">Own a second reality.</h2>
+    <div class="price-grid">
+      <article class="price-card" data-tilt>
+        <h3>SyWorld Core</h3>
+        <p class="price"><span>$</span>499</p>
+        <p class="price-note">The headset, the Presence engine, the Commons.</p>
+        <ul>
+          <li>SyWorld headset &amp; controllers</li>
+          <li>4K per eye &middot; 120&deg; FOV</li>
+          <li>Access to millions of worlds</li>
+          <li>Dream Build starter tools</li>
+        </ul>
+        <a href="#checkout" class="btn btn-buy" data-magnetic data-plan="Core">Buy now</a>
+        <a href="#experience" class="mini-link">Watch preview</a>
+      </article>
+      <article class="price-card featured" data-tilt>
+        <div class="tag">Most immersive</div>
+        <h3>SyWorld Pro</h3>
+        <p class="price"><span>$</span>699</p>
+        <p class="price-note">For creators who live inside their worlds.</p>
+        <ul>
+          <li>Everything in Core</li>
+          <li>Full Dream Build suite &amp; physics editor</li>
+          <li>Pro comfort strap &amp; hot-swap battery</li>
+          <li>Priority Commons publishing</li>
+        </ul>
+        <a href="#checkout" class="btn btn-buy" data-magnetic data-plan="Pro">Buy now</a>
+        <a href="#experience" class="mini-link">Watch preview</a>
+      </article>
+      <article class="price-card" data-tilt>
+        <h3>SyWorld Studio</h3>
+        <p class="price"><span>$</span>1,199</p>
+        <p class="price-note">A full world-building workstation.</p>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Dual-battery kit &amp; carry case</li>
+          <li>Team worlds &amp; shared build sessions</li>
+          <li>Dedicated onboarding call</li>
+        </ul>
+        <a href="#checkout" class="btn btn-buy" data-magnetic data-plan="Studio">Buy now</a>
+        <a href="#experience" class="mini-link">Watch preview</a>
+      </article>
+    </div>
+    <p class="price-reassure">Free shipping &middot; 30-day return &middot; 2-year warranty &middot; Financing available</p>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" id="checkout">
+    <canvas id="ctaField"></canvas>
+    <div class="final-inner">
+      <img class="final-emblem" src="assets/logo.png" alt="SyWorld house emblem" width="96" height="96" />
+      <p class="section-eyebrow">The world you know is only one world</p>
+      <h2>Welcome to SyWorld.<br /><span class="grad">Where you decide what reality means.</span></h2>
+      <a href="#pricing" class="btn btn-buy big" data-magnetic>Buy SyWorld now</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-lockup">
+        <img src="assets/logo.png" alt="SyWorld house emblem" width="56" height="56" />
+        <span class="brand-text">SY<span>WORLD</span></span>
+      </div>
+      <p>Escape reality. Create your own.</p>
+      <p class="house-line">Bearing the mark of our house.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#experience">The experience</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#device">The headset</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact me</h4>
+      <a href="tel:+639197493090">+63 919 749 3090</a>
+      <a href="tel:09197493090">0919 749 3090</a>
+      <a href="mailto:omandamjerenze@gmail.com">omandamjerenze@gmail.com</a>
+      <div class="socials">
+        <a href="https://github.com/JerenzeLevi" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://www.facebook.com/Jrnz.Leviixi" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+        <a href="https://www.instagram.com/levvv_iii/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@jerenze_levi" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.linkedin.com/in/jerenze-levi-3a71013b2/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.youtube.com/@TheComputerScientist-Levi" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>&copy; <span id="year"></span> SyWorld. All rights reserved.</span>
+    <span>Create. Explore. Connect. Escape.</span>
+  </div>
+</footer>
+
+<div class="buy-toast" id="buyToast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
