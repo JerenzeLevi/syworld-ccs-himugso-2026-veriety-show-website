@@ -35,8 +35,13 @@
     <a href="#doctor">Clinical</a>
     <a href="#pricing">Pricing</a>
   </nav>
+  <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play the SyWorld commercial theme">
+    <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music-label">Theme</span>
+  </button>
   <a href="#pricing" class="btn btn-buy nav-buy" data-magnetic>Buy now</a>
 </header>
+<audio id="commercialSong" src="assets/commercial-song.mp3" loop preload="none"></audio>
 
 <main id="top">
 
@@ -154,6 +159,7 @@
       </div>
     </div>
     <div class="device-copy">
+      <img src="assets/logo-product.jpg" alt="SyWorld product logo" class="device-logo" width="200" />
       <p class="section-eyebrow">The SyWorld headset</p>
       <h2 class="section-title">Light on your face.<br />Impossible to look away from.</h2>
       <p class="muted">SyWorld's next-generation VR technology makes virtual worlds feel more immersive than ever &mdash; letting you see, hear, move and interact as though you were truly there.</p>

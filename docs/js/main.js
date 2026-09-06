@@ -442,6 +442,31 @@
   field("starfield", { count: { s: 55, l: 130 }, speed: 0.3 });
   field("ctaField", { count: { s: 40, l: 95 }, speed: 0.45 });
 
+  /* ---------- commercial theme song ---------- */
+  {
+    const btn = document.getElementById("musicToggle");
+    const song = document.getElementById("commercialSong");
+    if (btn && song) {
+      song.volume = 0.7;
+      btn.addEventListener("click", () => {
+        if (song.paused) {
+          song.play().then(() => {
+            btn.classList.add("playing");
+            btn.setAttribute("aria-pressed", "true");
+          }).catch(() => {});
+        } else {
+          song.pause();
+          btn.classList.remove("playing");
+          btn.setAttribute("aria-pressed", "false");
+        }
+      });
+      song.addEventListener("ended", () => {
+        btn.classList.remove("playing");
+        btn.setAttribute("aria-pressed", "false");
+      });
+    }
+  }
+
   /* ---------- refresh after load ---------- */
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();
